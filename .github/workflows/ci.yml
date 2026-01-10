@@ -73,11 +73,13 @@ jobs:
       - name: Build backend image
         run: |
           docker build \
+            -f backend/Dockerfile \
             -t devops-backend:${{ github.sha }} \
-            ./backend
+            backend
 
       - name: Build frontend image
         run: |
           docker build \
+            -f frontend/Dockerfile \
             -t devops-frontend:${{ github.sha }} \
-            ./frontend
+            frontend
